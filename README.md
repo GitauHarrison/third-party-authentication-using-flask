@@ -2,8 +2,26 @@
 
 ![Third Party Authentication](/app/static/images/flask_auth.png)
 
+### Overview
+
 The use of third party apps to assist in login is fairly common. It improves a user's experience whenever they want to access content that is protected.
 
+### Tools Used
+* Flask framework
+* Python 3 for programming
+* SQLite database
+* Flask-Bootstrap for crossplatform responsiveness
+* Flask-WTF for web form creation
+* Flask-Migrate for database management
+* Flask-Mail to handle password reset requests
+* Twitter API
+* FaceBook API
+
+### Features
+* User authentication
+* Password Reset
+
+### Testing
 To test this application, first clone it:
 
 ```python
