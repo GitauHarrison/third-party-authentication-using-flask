@@ -1,5 +1,11 @@
 {% extends 'bootstrap/base.html' %}
 
+<!-- Head image goes here -->
+{% block head %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename = 'images/verified-account.png') }}">
+{% endblock %}
+
 {% block title %}
     {% if title %}
        {{ title }} - Flask Auth
