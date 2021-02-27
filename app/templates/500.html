@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <h1>An unexpected internal error</h1>
+    <p>
+        An unexpected internal error has occurred. The administrator has been notified. Sorry for the inconvinience.
+    </p>
+    <p>
+        Click <a href="{{ url_for('index') }}">here</a> to return to the home page.
+    </p>
+{% endblock %}

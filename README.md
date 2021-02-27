@@ -20,6 +20,8 @@ The use of third party apps to assist in login is fairly common. It improves a u
 ### Features
 * User authentication
 * Password Reset
+* Message flashing for improved user feedback
+* Error handling and useful redirects
 
 ### Testing
 To test this application, first clone it:
