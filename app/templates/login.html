@@ -1,31 +1,45 @@
 {% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
-{% block app_content %}
-    <h1>Log In</h1>
+{% block app_content %}    
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
             <!-- empty column -->
          </div>    
         <div class="col-md-4">
+            <h1 class="text-center" >Log In</h1><br>
             <p>
                 You can use your social media accounts to login.
             </p>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
            <!-- empty column -->
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
+            <!-- empty column -->
+        </div>    
+        <div class="col-md-4">
             <a href="#"><img class="img-fluid" style="max-width: 100%; height: auto; border-radius: 15px; padding: 5px;"  src="{{url_for('static', filename='images/login_with_twitter.jpeg')}}" alt="Twitter"></a>
         </div>
+        <div class="col-md-4">
+           <!-- empty column -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <!-- empty column -->
+        </div>    
         <div class="col-md-8">
             <a href="#"><img class="img-fluid" style="max-width: 100%; height: auto; border-radius: 15px; padding: 5px;"  src="{{url_for('static', filename='images/login_with_fb.png')}}" alt="FaceBook"></a>
         </div> <hr>
-    </div>
+        <div class="col-md-4">
+           <!-- empty column -->
+        </div>
+    </div><hr><br>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
             <!-- empty column -->
          </div>    
         <div class="col-md-4">
@@ -33,12 +47,12 @@
                 Alternatively, you can create custom login credentials below.
             </p>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
            <!-- empty column -->
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
             <!-- empty column -->
          </div>
         <div class="col-md-4" style="border: 1px solid #E6E6E6; padding: 20px; border-radius: 7px; margin: 10px;">
@@ -52,7 +66,7 @@
                 <a href="{{url_for('reset_password_request')}}">Click here to reset</a>
             </p>
         </div>  
-        <div class="col-md-8">
+        <div class="col-md-4">
             <!-- empty column -->
          </div>      
     </div>
