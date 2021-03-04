@@ -44,7 +44,7 @@ def register():
         db.session.commit()
         flash('You have been registered successfully! Login to continue.')
         return redirect(url_for('login'))
-    return render_template('register.html', title='Title', form=form)
+    return render_template('register.html', title='Register', form=form)
 
 
 @app.route('/logout')
