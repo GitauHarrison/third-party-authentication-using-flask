@@ -16,12 +16,20 @@ The use of third party apps to assist in login is fairly common. It improves a u
 * Flask-Mail to handle password reset requests
 * Twitter API
 * FaceBook API
+* Heroku for deployment
 
 ### Features
 * User authentication
 * Password Reset
 * Message flashing for improved user feedback
 * Error handling and useful redirects
+* Social Logins
+
+### Deployed Application
+* [Flask third party auth](https://flask-third-party-auth.herokuapp.com/)
+
+### Contributors
+* [Gitau Harrison](https://github.com/GitauHarrison)
 
 ### Testing
 To test this application, first clone it:
