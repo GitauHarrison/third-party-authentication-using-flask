@@ -38,36 +38,4 @@
            <!-- empty column -->
         </div>
     </div><hr><br>
-    <div class="row">
-        <div class="col-md-4">
-            <!-- empty column -->
-         </div>    
-        <div class="col-md-4">
-            <p>
-                Alternatively, you can create custom login credentials below.
-            </p>
-        </div>
-        <div class="col-md-4">
-           <!-- empty column -->
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <!-- empty column -->
-         </div>
-        <div class="col-md-4" style="border: 1px solid #E6E6E6; padding: 20px; border-radius: 7px; margin: 10px;">
-            {{ wtf.quick_form(form) }}
-            <p>
-                New here?
-                <a href="{{ url_for('register') }}">Click here to register</a>
-            </p>
-            <p>
-                Forgot password?
-                <a href="{{url_for('reset_password_request')}}">Click here to reset</a>
-            </p>
-        </div>  
-        <div class="col-md-4">
-            <!-- empty column -->
-         </div>      
-    </div>
 {% endblock %}

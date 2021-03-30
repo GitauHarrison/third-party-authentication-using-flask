@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
+
 basedir = os.path.join(os.path.dirname(__file__))
+load_dotenv(basedir, '.env')
 
 
 class Config(object):
@@ -8,10 +11,11 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    MAIL_SERVER = 'smtp.gmail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = 1
-    MAIL_USERNAME = 'your-email-address'
-    MAIL_PASSWORD = 'password-to-the-above-email'
-    ADMINS = ['an-another-email-to-act-as-admin-email']
+    MAIL_SERVER = os.environ.get('MAIL_SERVER')
+    MAIL_PORT = os.environ.get('MAIL_PORT')
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS')
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    ADMINS = os.environ.get('ADMINS')
 
+    OAUTH_CREDENTIALS = os.environ.get('OAUTH_CREDENTIALS')
