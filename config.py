@@ -18,4 +18,21 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = os.environ.get('ADMINS')
 
-    OAUTH_CREDENTIALS = os.environ.get('OAUTH_CREDENTIALS')
+    # OAUTH_CREDENTIALS = os.environ.get('OAUTH_CREDENTIALS')
+
+    FACEBOOK_ID = os.environ.get('FACEBOOK_ID')
+    FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET')
+
+    TWITTER_ID = os.environ.get('TWITTER_ID')
+    TWITTER_SECRET = os.environ.get('TWITTER_SECRET')
+
+    OAUTH_CREDENTIALS = {
+        'facebook': {
+            'id': os.environ.get('FACEBOOK_ID'),
+            'secret': os.environ.get('FACEBOOK_SECRET')
+        },
+        'twitter': {
+            'id': os.environ.get('TWITTER_ID'),
+            'secret': os.environ.get('TWITTER_SECRET')
+        }
+    }
