@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
-{% block app_content %}
-    <h1>Hi, {{ current_user.nickname }}!</h1>
+{% block app_content %}    
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Emmpty div -->
+        </div>
+        <div class="col-md-4 text-center">
+            <h1>Hi, {{ current_user.nickname }}!</h1>
+        </div>
+        <div class="col-md-4">
+            <!-- Empty div -->
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12">
+            <p>
+                This was a test implementation of the OAuth service which handles a user's
+                authentication from social media sites such as FaceBook, Twitter et cetera
+            </p>
+        </div>
+    </div>
 {% endblock %}
