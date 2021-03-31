@@ -1,6 +1,7 @@
 from app import app
-from flask import url_for, redirect, session
+from flask import url_for, redirect, session, request
 from rauth import OAuth2Service, OAuth1Service
+import json
 
 
 class OAuthSignIn(object):
@@ -19,10 +20,8 @@ class OAuthSignIn(object):
         pass
 
     def get_callback_url(self):
-        return url_for('oauth_callback',
-                       provider=self.provider_name,
-                       _external=True
-                       )
+        return url_for('oauth_callback', provider=self.provider_name,
+                       _external=True)
 
     @classmethod
     def get_provider(self, provider_name):
@@ -46,12 +45,33 @@ class FacebookSignIn(OAuthSignIn):
             base_url='https://graph.facebook.com/'
         )
 
-        def authorize(self):
-            return redirect(self.service.get_authorize_url(
-                scope='email',
-                response_type='code',
-                redirect_uri=self.get_authorize_url()
-            ))
+    def authorize(self):
+        return redirect(self.service.get_authorize_url(
+            scope='email',
+            response_type='code',
+            redirect_uri=self.get_callback_url())
+        )
+
+    def callback(self):
+        def decode_json(payload):
+            return json.loads(payload.decode('utf-8'))
+
+        if 'code' not in request.args:
+            return None, None, None
+        oauth_session = self.service.get_auth_session(
+            data={'code': request.args['code'],
+                  'grant_type': 'authorization_code',
+                  'redirect_uri': self.get_callback_url()},
+            decoder=decode_json
+        )
+        me = oauth_session.get('me?fields=id,email').json()
+        return (
+            'facebook$' + me['id'],
+            me.get('email').split('@')[0],  # Facebook does not provide
+                                            # username, so the email's user
+                                            # is used instead
+            me.get('email')
+        )
 
 
 class TwitterSignIn(OAuthSignIn):
@@ -67,9 +87,23 @@ class TwitterSignIn(OAuthSignIn):
             base_url='https://api.twitter.com/1.1/'
         )
 
-        def authorize(self):
-            request_token = self.service.get_request_token(
-                params={'oauth_callback': self.get_callback_url()}
-            )
-            session['request_token'] = request_token
-            return redirect(self.service.get_authorize_url(request_token[0]))
+    def authorize(self):
+        request_token = self.service.get_request_token(
+            params={'oauth_callback': self.get_callback_url()}
+        )
+        session['request_token'] = request_token
+        return redirect(self.service.get_authorize_url(request_token[0]))
+
+    def callback(self):
+        request_token = session.pop('request_token')
+        if 'oauth_verifier' not in request.args:
+            return None, None, None
+        oauth_session = self.service.get_auth_session(
+            request_token[0],
+            request_token[1],
+            data={'oauth_verifier': request.args['oauth_verifier']}
+        )
+        me = oauth_session.get('account/verify_credentials.json').json()
+        social_id = 'twitter$' + str(me.get('id'))
+        username = me.get('screen_name')
+        return social_id, username, None   # Twitter does not provide email
