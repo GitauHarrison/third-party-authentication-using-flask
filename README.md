@@ -91,7 +91,7 @@ FACEBOOK_SECRET=
 7. Run flask server:
 
 ```python
-(flask_2fa)$ flask run
+(flask_auth_test)$ flask run
 ```
 
 Once your application is running, you can access your localhost on http://127.0.0.1:5000/. I have not used `ngrok`. If you wish to do so, to provision temporary public URLs that will allow access to your application, learn how you can set it up [here](https://gitauharrison-blog.herokuapp.com/ngrok).
