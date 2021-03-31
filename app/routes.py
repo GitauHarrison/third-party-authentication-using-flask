@@ -7,6 +7,7 @@ from app.models import User
 from app.email import send_password_reset_email
 from datetime import datetime
 from werkzeug.urls import url_parse
+from oauth import OAuthSignIn
 
 
 @app.route('/')
@@ -89,3 +90,11 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+
+
+@app.route('/authorize/<provider>')
+def oauth_authorize(provider):
+    if not current_user.is_anonymous():
+        return redirect(url_for('index'))
+    oauth = OAuthSignIn.get_provider(provider)
+    return oauth.authorize()
