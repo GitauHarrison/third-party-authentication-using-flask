@@ -18,8 +18,7 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = os.environ.get('ADMINS')
 
-    # OAUTH_CREDENTIALS = os.environ.get('OAUTH_CREDENTIALS')
-
+    # OAuth Credentials
     FACEBOOK_ID = os.environ.get('FACEBOOK_ID')
     FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET')
 
@@ -36,3 +35,6 @@ class Config(object):
             'secret': os.environ.get('TWITTER_SECRET')
         }
     }
+
+    # Heroku logs
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
