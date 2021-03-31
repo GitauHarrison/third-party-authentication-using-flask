@@ -21,7 +21,7 @@
             <!-- empty column -->
         </div>    
         <div class="col-md-4">
-            <a href="#"><img class="img-fluid" style="max-width: 100%; height: auto; border-radius: 15px; padding: 5px;"  src="{{url_for('static', filename='images/login_with_twitter.jpeg')}}" alt="Twitter"></a>
+            <a href="{{ url_for('oauth_authorize', provider='twitter') }}"><img class="img-fluid" style="max-width: 100%; height: auto; border-radius: 15px; padding: 5px;"  src="{{url_for('static', filename='images/login_with_twitter.jpeg')}}" alt="Twitter"></a>
         </div>
         <div class="col-md-4">
            <!-- empty column -->
@@ -32,7 +32,7 @@
             <!-- empty column -->
         </div>    
         <div class="col-md-8">
-            <a href="#"><img class="img-fluid" style="max-width: 100%; height: auto; border-radius: 15px; padding: 5px;"  src="{{url_for('static', filename='images/login_with_fb.png')}}" alt="FaceBook"></a>
+            <a href="{{ url_for('oauth_authorize', provider='facebook') }}"><img class="img-fluid" style="max-width: 100%; height: auto; border-radius: 15px; padding: 5px;"  src="{{url_for('static', filename='images/login_with_fb.png')}}" alt="FaceBook"></a>
         </div> <hr>
         <div class="col-md-4">
            <!-- empty column -->
