@@ -55,6 +55,4 @@ if not app.debug:
         app.logger.setLevel(logging.INFO)
         app.logger.info('Flask OAuth App')
 
-return app
-
 from app import routes, models, errors, oauth
