@@ -101,3 +101,11 @@ With the application running:
 * Click on either social login buttons
 * Authorize your account to sign you up
 * You should be able to see the home page
+
+### References
+
+1. If you do not know how to make a flask application, learn how to do that [here](https://github.com/GitauHarrison/notes/blob/master/web_development/personal_blog/personal_blog.md).
+
+2. This application makes use of `ngrok`. Learn how to incorporate it in your flask app [here](https://github.com/GitauHarrison/notes/blob/master/localhost_testing.md).
+
+3. If you would like to know how to know how to integrate social logins (rather than simply running this application), [read more here](https://github.com/GitauHarrison/notes/blob/master/two_factor_authentication/third_party_auth.md).
