@@ -47,6 +47,29 @@ You will need:
 
 Learn how to create a Facebook and a Twitter app in this [ third party authentication guide](https://github.com/GitauHarrison/notes/blob/master/two_factor_authentication/third_party_auth.md). From this guide you will  learn how to generate your Facebook and Twitter apps' _API Keys_ and _Secret_ID_. You will need them to run this application locally.
 
+#### Additional Notes on Twitter Developer API
+
+Twitter API working you need "Elevated" Access Level
+
+Screenshot from below Page: 
+https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve
+
+Additionally you need to add the below URL to your *Callback URI / Redirect URL* settings in Twitter developer API
+```http://127.0.0.1:5000/callback/twitter```
+
+<img width="617" alt="image" src="https://user-images.githubusercontent.com/5732092/177808540-18c5ea45-fe3d-4753-b562-facf34af23c8.png">
+
+
+<img width="909" alt="image" src="https://user-images.githubusercontent.com/5732092/177788365-23bd0dc8-a2bb-4f3e-b62d-abfbe6fab41b.png">
+
+
+If you have only "Essential" Twitter API Access - you will get the below error message in response.
+
+```
+127.0.0.1 - - [07/Jul/2022 03:37:32] "GET /authorize/twitter HTTP/1.1" 302 -
+{'errors': [{'message': 'You currently have Essential access which includes access to Twitter API v2 endpoints only. If you need access to this endpoint, you’ll need to apply for Elevated access via the Developer Portal. You can learn more here: https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve', 'code': 453}]}
+social_id:twitter$None
+```
 
 To test this application, first 
 
