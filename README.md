@@ -27,7 +27,8 @@ The use of third party apps to assist in login is fairly common. It improves a u
 * Social Logins
 
 ### Deployed Application
-* [Flask third party auth](https://flask-third-party-auth.herokuapp.com/)
+* [Flask third party auth](https://flask-third-party-auth.herokuapp.com/) - Heroku
+* [Flask Third Parth Auth](https://third-party-auth.onrender.com) - Render
 
 ### Contributors
 * [Gitau Harrison](https://github.com/GitauHarrison)
